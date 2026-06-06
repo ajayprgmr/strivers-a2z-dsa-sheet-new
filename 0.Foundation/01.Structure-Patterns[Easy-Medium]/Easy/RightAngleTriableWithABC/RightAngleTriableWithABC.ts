@@ -1,4 +1,4 @@
-let n = 10
+let n:number = 20
 let res = ''
 
 for (let i = 1; i <= n; i++) {
@@ -11,3 +11,5 @@ for (let i = 1; i <= n; i++) {
 }
 
 console.log(res)
+
+export {}

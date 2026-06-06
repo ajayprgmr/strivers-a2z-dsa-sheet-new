@@ -1,0 +1,11 @@
+{
+  "name": "strivers-a2z-dsa-sheet-ts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "cli": "./cli"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  }
+}

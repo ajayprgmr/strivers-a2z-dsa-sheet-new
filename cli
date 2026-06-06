@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ $# -lt 1 ]]; then
+  echo "Usage: ./cli <file.ts> [args...]"
+  exit 1
+fi
+
+file="$1"
+shift
+
+if [[ "$file" != *.ts ]]; then
+  echo "Only .ts files are supported"
+  exit 1
+fi
+
+if [[ ! -f "$file" ]]; then
+  matches=()
+  while IFS= read -r match; do
+    matches+=("$match")
+  done < <(find . -type f -name "$file" | sort)
+
+  if [[ ${#matches[@]} -eq 0 ]]; then
+    echo "File not found: $file"
+    exit 1
+  fi
+
+  if [[ ${#matches[@]} -gt 1 ]]; then
+    echo "Multiple files found. Use full path:"
+    printf '%s\n' "${matches[@]}"
+    exit 1
+  fi
+
+  file="${matches[0]}"
+fi
+
+if [[ ! -x "./node_modules/.bin/tsc" ]]; then
+  echo "TypeScript compiler not found. Run: npm install"
+  exit 1
+fi
+
+mkdir -p .ts-build
+
+./node_modules/.bin/tsc "$file" --target ES2020 --module CommonJS --outDir .ts-build
+
+compiled_file=".ts-build/$(basename "${file%.ts}").js"
+node "$compiled_file" "$@"
