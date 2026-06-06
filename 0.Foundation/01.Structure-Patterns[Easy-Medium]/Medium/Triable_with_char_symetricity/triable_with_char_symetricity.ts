@@ -26,7 +26,7 @@ function generatePyramid(rows) {
 generatePyramid(8)
 
 */
-let n = 8
+let n = 26
 let res = ''
 
 for (let i = 1; i <= n; i++) {
@@ -53,3 +53,5 @@ for (let i = 1; i <= n; i++) {
 }
 
 console.log(res)
+
+export { }

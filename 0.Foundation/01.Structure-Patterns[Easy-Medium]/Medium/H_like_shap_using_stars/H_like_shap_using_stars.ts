@@ -5,7 +5,7 @@ for (let i = 1; i <= n; i++) {
     res += '*'
   }
   //spacing
-  for (let j = 1; j <= 2 * n - 2 * i; j++) {
+  for (let j = 1; j <= 2 * (n - i); j++) {
     res += ' '
   }
 
@@ -15,6 +15,7 @@ for (let i = 1; i <= n; i++) {
 
   res += '\n'
 }
+
 for (let i = 1; i < n; i++) {
   for (let j = 1; j <= n - i; j++) {
     res += '*'
@@ -56,3 +57,5 @@ ouput for n=9
 
 
 */
+
+export { }
