@@ -1,6 +1,8 @@
 /**
  * An Armstrong number, also known as a narcissistic number, is a number that is equal to the sum of its own digits raised to the power of the number of digits.
  * E.g. abc...z = a^n + b^n + c^n + ... + z^n
+ * E.g  2344
+      * 2+3+4+4 = 2^4 + 3^4 + 4^4 + 4^4 --> armstrong number
  * GFG: https://www.geeksforgeeks.org/problems/armstrong-numbers2727/1
  */
 function armStrongNumber(n: number): boolean {
