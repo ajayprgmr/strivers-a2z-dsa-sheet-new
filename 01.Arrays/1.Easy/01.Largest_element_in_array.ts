@@ -21,16 +21,17 @@ APPROACH:-
 */
 
 // CODE:-
-int largest(int arr[], int n)
-{
-    int ans = arr[0];
-    for (int i = 1; i < n; i++)
-    {
-        if (arr[i] > ans)
-            ans = arr[i];
+function largest(numbers: number[], size: number): number {
+  let largestElement = numbers[0];
+
+  for (let index = 1; index < size; index++) {
+    if (numbers[index] > largestElement) {
+      largestElement = numbers[index];
     }
-    return ans;
+  }
+
+  return largestElement;
 }
 
 // TIME COMPLEXITY = O(N)
-// SPACE COMPLEXITY = O(0)
+// SPACE COMPLEXITY = O(1)
